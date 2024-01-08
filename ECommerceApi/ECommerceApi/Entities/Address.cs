@@ -9,7 +9,7 @@ namespace ECommerceApi.Entities
         public string? Adres { get; set; }
         public int? CountryId { get; set; }
         public Country? Country { get; set; }
-        public Order? Order { get; set; }
-        public bool IsActive { get; set; }
+        public ICollection<Order>? Order { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }
