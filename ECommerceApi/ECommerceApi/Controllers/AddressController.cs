@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using ECommerceApi.Applications.AddressOperations.Commands.CreateAddress;
+using ECommerceApi.Applications.AddressOperations.Commands.DeleteAddress;
+using ECommerceApi.Applications.AddressOperations.Commands.UpdateAddress;
 using ECommerceApi.Applications.AddressOperations.Quaries.GetAddressById;
 using ECommerceApi.Applications.AddressOperations.Quaries.GetAdress;
 using ECommerceApi.Context;
 using Microsoft.AspNetCore.Mvc;
 using static ECommerceApi.Applications.AddressOperations.Commands.CreateAddress.CreateAddressCommand;
+using static ECommerceApi.Applications.AddressOperations.Commands.UpdateAddress.UpdateAddressCommand;
 
 namespace ECommerceApi.Controllers
 {
@@ -21,7 +24,7 @@ namespace ECommerceApi.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet (Name = "GetAddress")]
+        [HttpGet]
         public IActionResult Get()
         {
             GetAddressQuery query = new GetAddressQuery(_context, _mapper);
@@ -38,11 +41,30 @@ namespace ECommerceApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost (Name = "CreateAddress")]
+        [HttpPost]
         public IActionResult Create([FromBody] CreateAddressModel model)
         {
             CreateAddressCommand command = new CreateAddressCommand(_context, _mapper);
             command.model = model;
+            command.Handle();
+            return Ok();
+        }
+
+        [HttpPut]
+        public IActionResult Put(int id, [FromBody] UpdateAddressModel model) 
+        {
+            UpdateAddressCommand command = new UpdateAddressCommand(_context);
+            command.model = model;
+            command.Id = id;
+            command.Handle();
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            DeleteAddressCommand command = new DeleteAddressCommand(_context);
+            command.Id = id;
             command.Handle();
             return Ok();
         }

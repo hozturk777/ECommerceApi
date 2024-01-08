@@ -3,6 +3,9 @@ using ECommerceApi.Entities;
 using static ECommerceApi.Applications.AddressOperations.Commands.CreateAddress.CreateAddressCommand;
 using static ECommerceApi.Applications.AddressOperations.Quaries.GetAddressById.GetAddresByIdQuery;
 using static ECommerceApi.Applications.AddressOperations.Quaries.GetAdress.GetAddressQuery;
+using static ECommerceApi.Applications.CountryOperations.Commands.CreateCountry.CreateCountryCommand;
+using static ECommerceApi.Applications.CountryOperations.Quaries.GetCountry.GetCountryQuery;
+using static ECommerceApi.Applications.CountryOperations.Quaries.GetCountryById.GetCountryByIdQuery;
 
 namespace ECommerceApi.Common
 {
@@ -18,6 +21,14 @@ namespace ECommerceApi.Common
 
             // Address Post
             CreateMap<CreateAddressModel, Address>();
+
+
+            // Country Get
+            CreateMap<Country, GetCountryViewModel>();
+            CreateMap<Country, GetCountryByIdViewModel>();
+
+            //Country Post
+            CreateMap<CreateCountryModel, Country>();
         }
     }
 }

@@ -32,6 +32,7 @@ namespace ECommerceApi.Applications.AddressOperations.Quaries.GetAddressById
 
         public class GetAddressByIdViewModel
         {
+            public int Id { get; set; }
             public string? Adres { get; set; }
             public int? CountryId { get; set; }
             public string? Country { get; set; }
