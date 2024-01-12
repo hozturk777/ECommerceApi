@@ -43,7 +43,7 @@ namespace ECommerceApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] CreateCountryModel model)
+        public IActionResult Create([FromBody] CreateCountryModel model)
         {
             CreateCountryCommand command = new CreateCountryCommand(_context, _mapper);
             command.model = model;
@@ -51,7 +51,7 @@ namespace ECommerceApi.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(int id, UpdateCountryModel model)
+        public IActionResult Update(int id, UpdateCountryModel model)
         {
             UpdateCountryCommand command = new UpdateCountryCommand(_context);
             command.model = model;

@@ -34,7 +34,7 @@ namespace ECommerceApi.Migrations
 
                     b.HasIndex("ProductsId");
 
-                    b.ToTable("CartProduct");
+                    b.ToTable("CartProduct", (string)null);
                 });
 
             modelBuilder.Entity("ECommerceApi.Entities.Address", b =>
@@ -58,7 +58,7 @@ namespace ECommerceApi.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("ECommerceApi.Entities.Cart", b =>
@@ -76,7 +76,7 @@ namespace ECommerceApi.Migrations
 
                     b.HasIndex("CustomersId");
 
-                    b.ToTable("Carts");
+                    b.ToTable("Carts", (string)null);
                 });
 
             modelBuilder.Entity("ECommerceApi.Entities.Category", b =>
@@ -95,7 +95,7 @@ namespace ECommerceApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("ECommerceApi.Entities.Country", b =>
@@ -114,7 +114,7 @@ namespace ECommerceApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Countries");
+                    b.ToTable("Countries", (string)null);
                 });
 
             modelBuilder.Entity("ECommerceApi.Entities.Customer", b =>
@@ -144,7 +144,7 @@ namespace ECommerceApi.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customers", (string)null);
                 });
 
             modelBuilder.Entity("ECommerceApi.Entities.Order", b =>
@@ -178,7 +178,7 @@ namespace ECommerceApi.Migrations
 
                     b.HasIndex("CustomersId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("ECommerceApi.Entities.Product", b =>
@@ -214,7 +214,7 @@ namespace ECommerceApi.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("CartProduct", b =>

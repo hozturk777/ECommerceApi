@@ -33,7 +33,7 @@ namespace ECommerceApi.Controllers
         }
 
         [HttpGet("id")]
-        public IActionResult GetById(int id)
+        public IActionResult Get(int id)
         {
             GetAddresByIdQuery query = new GetAddresByIdQuery(_context, _mapper);
             query.Id = id;
@@ -51,7 +51,7 @@ namespace ECommerceApi.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(int id, [FromBody] UpdateAddressModel model) 
+        public IActionResult Update(int id, [FromBody] UpdateAddressModel model) 
         {
             UpdateAddressCommand command = new UpdateAddressCommand(_context);
             command.model = model;

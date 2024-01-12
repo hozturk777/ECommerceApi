@@ -1,8 +1,13 @@
 ﻿using AutoMapper;
+using ECommerceApi.Applications.CategoryOperations.Quaries.GetCategory;
+using ECommerceApi.Applications.CategoryOperations.Quaries.GetCategoryById;
 using ECommerceApi.Entities;
 using static ECommerceApi.Applications.AddressOperations.Commands.CreateAddress.CreateAddressCommand;
 using static ECommerceApi.Applications.AddressOperations.Quaries.GetAddressById.GetAddresByIdQuery;
 using static ECommerceApi.Applications.AddressOperations.Quaries.GetAdress.GetAddressQuery;
+using static ECommerceApi.Applications.CategoryOperations.Commands.CreateCategory.CreateCategoryCommand;
+using static ECommerceApi.Applications.CategoryOperations.Quaries.GetCategory.GetCategoryQuery;
+using static ECommerceApi.Applications.CategoryOperations.Quaries.GetCategoryById.GetCategoryByIdQuery;
 using static ECommerceApi.Applications.CountryOperations.Commands.CreateCountry.CreateCountryCommand;
 using static ECommerceApi.Applications.CountryOperations.Quaries.GetCountry.GetCountryQuery;
 using static ECommerceApi.Applications.CountryOperations.Quaries.GetCountryById.GetCountryByIdQuery;
@@ -18,7 +23,6 @@ namespace ECommerceApi.Common
                 .ForMember(dest => dest.Country, opt => opt.MapFrom(src => $"{src.Country.Name}"));
             CreateMap<Address, GetAddressByIdViewModel>()
                 .ForMember(dest => dest.Country, opt => opt.MapFrom(src => $"{src.Country.Name}"));
-
             // Address Post
             CreateMap<CreateAddressModel, Address>();
 
@@ -26,9 +30,16 @@ namespace ECommerceApi.Common
             // Country Get
             CreateMap<Country, GetCountryViewModel>();
             CreateMap<Country, GetCountryByIdViewModel>();
-
-            //Country Post
+            // Country Post
             CreateMap<CreateCountryModel, Country>();
+
+
+            // Category Get
+            CreateMap<Category, GetCategoryViewModel>();
+            CreateMap<Category, GetCategoryByIdViewModel>();
+
+            // Category Post
+            CreateMap<CreateCategoryModel, Category>();
         }
     }
 }
