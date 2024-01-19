@@ -11,6 +11,9 @@ using static ECommerceApi.Applications.CategoryOperations.Quaries.GetCategoryByI
 using static ECommerceApi.Applications.CountryOperations.Commands.CreateCountry.CreateCountryCommand;
 using static ECommerceApi.Applications.CountryOperations.Quaries.GetCountry.GetCountryQuery;
 using static ECommerceApi.Applications.CountryOperations.Quaries.GetCountryById.GetCountryByIdQuery;
+using static ECommerceApi.Applications.ProductOperations.Commands.CreateProduct.CreateProductCommand;
+using static ECommerceApi.Applications.ProductOperations.Quaries.GetProduct.GetProductQuery;
+using static ECommerceApi.Applications.ProductOperations.Quaries.GetProductById.GetProductByIdQuery;
 
 namespace ECommerceApi.Common
 {
@@ -40,6 +43,16 @@ namespace ECommerceApi.Common
 
             // Category Post
             CreateMap<CreateCategoryModel, Category>();
+
+
+            // Product Get
+            CreateMap<Product, GetProductViewModel>()
+                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => $"{src.Category.Name}"));
+            CreateMap<Product, GetProductByIdViewModel>()
+                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => $"{src.Category.Name}"));
+
+            // Product Post
+            CreateMap<CreateProductModel, Product>();
         }
     }
 }
